@@ -3,11 +3,11 @@
  * Multiplatform slide-over pane
  * https://github.com/roman-rr/cupertino-pane/
  *
- * Copyright 2019-2020 Roman Antonov (roman-rr)
+ * Copyright 2019-2021 Roman Antonov (roman-rr)
  *
  * Released under the MIT License
  *
- * Released on: December 21, 2020
+ * Released on: July 6, 2021
  */
 
 class Support {
@@ -298,6 +298,8 @@ class Events {
         if (!this.settings.inverse
             && !this.settings.upperThanTop && (newVal <= this.instance.topper)) {
             this.instance.paneEl.style.transform = `translateY(${this.instance.topper}px) translateZ(0px)`;
+            this.instance.checkOpacityAttr(newVal);
+            this.instance.checkOverflowAttr(newVal);
             return;
         }
         // Allow drag topper than top point

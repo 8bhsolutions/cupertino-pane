@@ -152,6 +152,8 @@ export class Events {
     if (!this.settings.inverse 
         && !this.settings.upperThanTop && (newVal <= this.instance.topper)) {
       this.instance.paneEl.style.transform = `translateY(${this.instance.topper}px) translateZ(0px)`;
+      this.instance.checkOpacityAttr(newVal);
+      this.instance.checkOverflowAttr(newVal);
       return;
     }
 
